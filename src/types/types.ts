@@ -1,4 +1,4 @@
 export interface iWordPair {
-  spanish: string;
-  german: string;
+  spanish: string
+  german: string
 }
