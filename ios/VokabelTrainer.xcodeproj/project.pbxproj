@@ -11,6 +11,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		3D9019D8269248C900FE7482 /* Caveat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D9019D7269248C900FE7482 /* Caveat-VariableFont_wght.ttf */; };
 		47BAD8766415CC89D08F7AD2 /* libPods-VokabelTrainer-VokabelTrainerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 155C529E83A7FBE33EA19BF5 /* libPods-VokabelTrainer-VokabelTrainerTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		D549BD4C54BC0B42181A4505 /* libPods-VokabelTrainer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 526E359D2F234F651A43E8EF /* libPods-VokabelTrainer.a */; };
@@ -30,6 +31,7 @@
 		00E356EE1AD99517003FC87E /* VokabelTrainerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VokabelTrainerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* VokabelTrainerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VokabelTrainerTests.m; sourceTree = "<group>"; };
+		0FF60568219A4A98825E6D05 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* VokabelTrainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VokabelTrainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = VokabelTrainer/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = VokabelTrainer/AppDelegate.m; sourceTree = "<group>"; };
@@ -37,11 +39,27 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = VokabelTrainer/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = VokabelTrainer/main.m; sourceTree = "<group>"; };
 		155C529E83A7FBE33EA19BF5 /* libPods-VokabelTrainer-VokabelTrainerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VokabelTrainer-VokabelTrainerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E336A62BBB44CF6880692A6 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		24CC9647270940379AB6CFA1 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		3231A6D52035454C381BEA40 /* Pods-VokabelTrainer-VokabelTrainerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VokabelTrainer-VokabelTrainerTests.debug.xcconfig"; path = "Target Support Files/Pods-VokabelTrainer-VokabelTrainerTests/Pods-VokabelTrainer-VokabelTrainerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		34871F3023DC484A9BD43932 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		3D9019D7269248C900FE7482 /* Caveat-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Caveat-VariableFont_wght.ttf"; path = "../src/assets/fonts/Caveat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		48D3415DA7DF4F8B82FA9373 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		5152FF86ADB54A62BADEBCF5 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		526E359D2F234F651A43E8EF /* libPods-VokabelTrainer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VokabelTrainer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F04D8326DA64BD6B0F9EF8F /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		6C8E1F78507B4566B191D0D5 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		6E486E93353F49DBBF3DEF58 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		6E6397385D15416B990ADF92 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		74E727287E664A43AF0E0EB5 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = VokabelTrainer/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		902B3E267DA942A92ADAF4BD /* Pods-VokabelTrainer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VokabelTrainer.release.xcconfig"; path = "Target Support Files/Pods-VokabelTrainer/Pods-VokabelTrainer.release.xcconfig"; sourceTree = "<group>"; };
 		9FFB49266EA319EED590B544 /* Pods-VokabelTrainer-VokabelTrainerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VokabelTrainer-VokabelTrainerTests.release.xcconfig"; path = "Target Support Files/Pods-VokabelTrainer-VokabelTrainerTests/Pods-VokabelTrainer-VokabelTrainerTests.release.xcconfig"; sourceTree = "<group>"; };
+		A63EA8FF8EED4D89958C0D0B /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		C4F4A23B51D344A595EB0A08 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		CDD28B5B17AF44E1B8E390C3 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		E683ECE128344B6A8B9C2097 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		EBD393F611DF468193AA1AF2 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FC08B1CC7052F88FBB7202E0 /* Pods-VokabelTrainer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VokabelTrainer.debug.xcconfig"; path = "Target Support Files/Pods-VokabelTrainer/Pods-VokabelTrainer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,7 +122,6 @@
 				3231A6D52035454C381BEA40 /* Pods-VokabelTrainer-VokabelTrainerTests.debug.xcconfig */,
 				9FFB49266EA319EED590B544 /* Pods-VokabelTrainer-VokabelTrainerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -128,12 +145,14 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				3D9019D7269248C900FE7482 /* Caveat-VariableFont_wght.ttf */,
 				13B07FAE1A68108700A75B9A /* VokabelTrainer */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* VokabelTrainerTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				2C2770348BB0E630029FF951 /* Pods */,
+				8CAA61BDDC494CECB5BB04B3 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +166,29 @@
 				00E356EE1AD99517003FC87E /* VokabelTrainerTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8CAA61BDDC494CECB5BB04B3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5152FF86ADB54A62BADEBCF5 /* AntDesign.ttf */,
+				48D3415DA7DF4F8B82FA9373 /* Entypo.ttf */,
+				24CC9647270940379AB6CFA1 /* EvilIcons.ttf */,
+				34871F3023DC484A9BD43932 /* Feather.ttf */,
+				1E336A62BBB44CF6880692A6 /* FontAwesome.ttf */,
+				CDD28B5B17AF44E1B8E390C3 /* FontAwesome5_Brands.ttf */,
+				C4F4A23B51D344A595EB0A08 /* FontAwesome5_Regular.ttf */,
+				6E486E93353F49DBBF3DEF58 /* FontAwesome5_Solid.ttf */,
+				A63EA8FF8EED4D89958C0D0B /* Fontisto.ttf */,
+				5F04D8326DA64BD6B0F9EF8F /* Foundation.ttf */,
+				6C8E1F78507B4566B191D0D5 /* Ionicons.ttf */,
+				6E6397385D15416B990ADF92 /* MaterialCommunityIcons.ttf */,
+				E683ECE128344B6A8B9C2097 /* MaterialIcons.ttf */,
+				0FF60568219A4A98825E6D05 /* Octicons.ttf */,
+				74E727287E664A43AF0E0EB5 /* SimpleLineIcons.ttf */,
+				EBD393F611DF468193AA1AF2 /* Zocial.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D9019D8269248C900FE7482 /* Caveat-VariableFont_wght.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -484,7 +527,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = GTSL47L2XE;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = VokabelTrainer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -496,10 +542,12 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yaneq.voctrainer;
 				PRODUCT_NAME = VokabelTrainer;
+				PROVISIONING_PROFILE_SPECIFIER = "Yaneq Distribution 2021";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -510,7 +558,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = GTSL47L2XE;
 				INFOPLIST_FILE = VokabelTrainer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -521,9 +572,11 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yaneq.voctrainer;
 				PRODUCT_NAME = VokabelTrainer;
+				PROVISIONING_PROFILE_SPECIFIER = "Yaneq Distribution 2021";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
