@@ -11,6 +11,9 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		3D1BA5A726937D100039C20A /* levelUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3D1BA5A426937D100039C20A /* levelUp.wav */; };
+		3D1BA5A826937D100039C20A /* fail.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3D1BA5A526937D100039C20A /* fail.wav */; };
+		3D1BA5A926937D100039C20A /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3D1BA5A626937D100039C20A /* correct.wav */; };
 		3D9019D8269248C900FE7482 /* Caveat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D9019D7269248C900FE7482 /* Caveat-VariableFont_wght.ttf */; };
 		47BAD8766415CC89D08F7AD2 /* libPods-VokabelTrainer-VokabelTrainerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 155C529E83A7FBE33EA19BF5 /* libPods-VokabelTrainer-VokabelTrainerTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -43,6 +46,9 @@
 		24CC9647270940379AB6CFA1 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		3231A6D52035454C381BEA40 /* Pods-VokabelTrainer-VokabelTrainerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VokabelTrainer-VokabelTrainerTests.debug.xcconfig"; path = "Target Support Files/Pods-VokabelTrainer-VokabelTrainerTests/Pods-VokabelTrainer-VokabelTrainerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		34871F3023DC484A9BD43932 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		3D1BA5A426937D100039C20A /* levelUp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = levelUp.wav; path = ../src/assets/sounds/levelUp.wav; sourceTree = "<group>"; };
+		3D1BA5A526937D100039C20A /* fail.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = fail.wav; path = ../src/assets/sounds/fail.wav; sourceTree = "<group>"; };
+		3D1BA5A626937D100039C20A /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = correct.wav; path = ../src/assets/sounds/correct.wav; sourceTree = "<group>"; };
 		3D9019D7269248C900FE7482 /* Caveat-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Caveat-VariableFont_wght.ttf"; path = "../src/assets/fonts/Caveat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		48D3415DA7DF4F8B82FA9373 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		5152FF86ADB54A62BADEBCF5 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
@@ -145,6 +151,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				3D1BA5A626937D100039C20A /* correct.wav */,
+				3D1BA5A526937D100039C20A /* fail.wav */,
+				3D1BA5A426937D100039C20A /* levelUp.wav */,
 				3D9019D7269248C900FE7482 /* Caveat-VariableFont_wght.ttf */,
 				13B07FAE1A68108700A75B9A /* VokabelTrainer */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -285,9 +294,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D1BA5A826937D100039C20A /* fail.wav in Resources */,
+				3D1BA5A726937D100039C20A /* levelUp.wav in Resources */,
 				3D9019D8269248C900FE7482 /* Caveat-VariableFont_wght.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				3D1BA5A926937D100039C20A /* correct.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

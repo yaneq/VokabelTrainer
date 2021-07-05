@@ -1,8 +1,12 @@
+import { GraphQLResult } from '@aws-amplify/api-graphql'
+import { listWordPairs } from '@graphqlQueries'
 import { iQuestion, iWordPair, tLanguage } from '@types'
+import { API, graphqlOperation } from 'aws-amplify'
 import _ from 'lodash'
 import { sample } from 'lodash'
+import { ListWordPairsQuery } from '../API'
 
-const WORD_PAIRS = [
+const FIXED_WORD_PAIRS = [
   ['los cubiertos', 'das Besteck'],
   ['los platos', 'die Teller'],
   ['gustar', 'mögen'],
@@ -50,7 +54,7 @@ const WORD_PAIRS = [
   ['juntos', 'gemeinsam'],
   ['la calma', 'die Ruhe'],
   ['el silencio', 'die Stille'],
-  ['feminino', 'weiblich'],
+  ['femenino', 'weiblich'],
   ['masculino', 'männlich'],
   ['produzir', 'erzeugen'],
   ['cerca', 'nah'],
@@ -62,7 +66,7 @@ const WORD_PAIRS = [
   ['la tiza', 'die Kreide'],
   ['entre', 'zwischen'],
   ['traducir', 'übersetzen'],
-  ['engargarse', 'sich kümmern'],
+  ['engargarse / responsibilarse', 'sich kümmern'],
   ['p. ej. (por ejemplo)', 'z. B. (zum Beispiel)'],
   ['detallado', 'ausführlich'],
   ['detallado', 'ausführlich'],
@@ -78,12 +82,33 @@ const WORD_PAIRS = [
   ['pelo rizado', 'lockiges Haar'],
   ['morder', 'beißen'],
   ['los pies del animal', 'die Pfoten'],
-  ['responsibilarse de algo', 'sich um etwas kümmern'],
+  ['gatear', 'krabbeln'],
+  ['no te olvides', 'vergiss nicht'],
+  ['la unidad', 'die Einheit'],
 ]
+
+let wordPairs: string[][] = [...FIXED_WORD_PAIRS]
+
+const fetchWordPairs = async () => {
+  const results = (await API.graphql(
+    graphqlOperation(listWordPairs),
+  )) as GraphQLResult<ListWordPairsQuery>
+  const items = results.data?.listWordPairs?.items
+  return items
+}
+
+fetchWordPairs()
+  .then(items => {
+    wordPairs = [
+      ...FIXED_WORD_PAIRS,
+      ...items!.map(item => [item?.spanish, item?.german] as string[]),
+    ]
+  })
+  .catch(() => console.log('error loading stuff from server'))
 
 export const getRandomWordPair = (): iWordPair =>
   sample(
-    WORD_PAIRS.map(wordPair => {
+    wordPairs.map(wordPair => {
       return {
         spanish: wordPair[0],
         german: wordPair[1],
