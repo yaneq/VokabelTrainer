@@ -1,4 +1,5 @@
-import { iWordPair } from '@types'
+import { iQuestion, iWordPair, tLanguage } from '@types'
+import _ from 'lodash'
 import { sample } from 'lodash'
 
 const WORD_PAIRS = [
@@ -89,3 +90,26 @@ export const getRandomWordPair = (): iWordPair =>
       }
     }),
   ) as iWordPair
+
+export const getRandomQuestion = (): iQuestion => {
+  const questionLanguage = _.sample(['german', 'spanish']) as tLanguage
+  const solutionLanguage = questionLanguage === 'german' ? 'spanish' : 'german'
+  const wordPairs: iWordPair[] = []
+  while (wordPairs.length < 4) {
+    const wordPair = getRandomWordPair()
+    if (!wordPairs.find(existing => existing.german === wordPair.german)) {
+      wordPairs.push(wordPair)
+    }
+  }
+
+  const answers = wordPairs.map(_wordPair => _wordPair[solutionLanguage])
+  const solutionIndex = Math.floor(Math.random() * answers.length)
+  const question = wordPairs[solutionIndex][questionLanguage]
+  return {
+    questionLanguage,
+    solutionLanguage,
+    question,
+    answers,
+    solutionIndex,
+  }
+}
