@@ -1,4 +1,3 @@
-import { ScribbleText } from '@styles'
 import Animated from 'react-native-reanimated'
 import styled from 'styled-components/native'
 
@@ -9,10 +8,11 @@ export const CardTapContainer = styled.TouchableWithoutFeedback`
 export const CardsContainer = styled.View`
   flex: 1;
 `
-// '#fae1df'
-export const Card = styled(Animated.View)`
+
+// '#afe2f3'
+export const Card = styled(Animated.View)<{ index?: number }>`
   flex: 1;
-  background-color: #afe2f3;
+  background-color: #fae1df;
   margin: 10px;
   padding: 10px;
   border-radius: 20px;
@@ -34,11 +34,10 @@ export const LowerCardContainer = styled.View`
 export const CardCoverContainer = styled.View`
   flex: 1;
   position: absolute;
-  height: 50%;
+  height: 100%;
   width: 100%;
   bottom: 0px;
   left: 0px;
-  background-color: orange;
 `
 
 export const CardCover = styled.View`

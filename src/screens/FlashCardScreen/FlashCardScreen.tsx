@@ -1,12 +1,6 @@
 import { getRandomWordPair } from '@lib'
 import { RootContainer } from '@styles'
-import React, {
-  Reducer,
-  useCallback,
-  useEffect,
-  useReducer,
-  useState,
-} from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import {
   PanGestureHandler,
   PanGestureHandlerGestureEvent,
@@ -46,13 +40,17 @@ const DRAGGER_OFFSET = {
 
 interface iInvertibleWordPair extends iWordPair {
   inverted: boolean
+  index: number
 }
 
-const getRandomInvertibleWordPair = (): iInvertibleWordPair => {
+const getRandomInvertibleWordPair = (
+  previous?: iInvertibleWordPair,
+): iInvertibleWordPair => {
   const wordPair = getRandomWordPair()
   return {
     ...wordPair,
     inverted: Math.random() > 0.5,
+    index: (previous && previous.index + 1) || 0,
   }
 }
 
@@ -71,46 +69,14 @@ const getWordForInvertibleWordPair = ({
   return wordPair[language]
 }
 
-interface iState {
-  currentWordPair: iInvertibleWordPair
-  nextWordPair: iInvertibleWordPair
-}
-
-interface iAction {
-  type: string
-  payload?: any
-}
-
-const initialState: iState = {
-  currentWordPair: getRandomInvertibleWordPair(),
-  nextWordPair: getRandomInvertibleWordPair(),
-}
-
-const reducer = (state: iState, action: iAction): iState => {
-  switch (action.type) {
-    case 'nextCard':
-      return {
-        currentWordPair: state.nextWordPair,
-        nextWordPair: getRandomInvertibleWordPair(),
-      }
-    default:
-      return {
-        ...state,
-      }
-  }
-}
-
 export const FlashCardScreen = () => {
-  // const [wordPair, setWordPair] = useState<iInvertibleWordPair>(() =>
-  //   getRandomInvertibleWordPair(),
-  // )
-  // const [nextWordPair, setNextWordPair] = useState<iInvertibleWordPair>(() =>
-  //   getRandomInvertibleWordPair(),
-  // )
-  const [state, dispatch] = useReducer<Reducer<iState, iAction>>(
-    reducer,
-    initialState,
+  const [wordPair, setWordPair] = useState<iInvertibleWordPair>(() =>
+    getRandomInvertibleWordPair(),
   )
+  const [nextWordPair, setNextWordPair] = useState<iInvertibleWordPair>(() =>
+    getRandomInvertibleWordPair(wordPair),
+  )
+  // const [isRevealed, setIsRevealed] = useState(false)
 
   // const XEXIT = 100
   const x = useSharedValue(DRAGGER_OFFSET.X)
@@ -120,7 +86,8 @@ export const FlashCardScreen = () => {
   const nextCard = () => {
     x.value = DRAGGER_OFFSET.X
     y.value = DRAGGER_OFFSET.Y
-    dispatch({ type: 'nextCard' })
+    setWordPair(nextWordPair)
+    setTimeout(() => setNextWordPair(getRandomInvertibleWordPair()), 200)
     flip.value = 0
     // setIsRevealed(false)
   }
@@ -152,7 +119,7 @@ export const FlashCardScreen = () => {
       onEnd: event => {
         let val = (Screen.height - event.absoluteY) / Screen.height
         if (val < 0.5) {
-          flip.value = withSpring(0)
+          flip.value = withTiming(0)
         }
         if (val >= 0.5) {
           flip.value = withSpring(1, {}, () => runOnJS(nextCard)())
@@ -174,11 +141,6 @@ export const FlashCardScreen = () => {
   //       ) {
   //         x.value = withSpring(DRAGGER_OFFSET.X + event.translationX * 6)
   //         y.value = withSpring(DRAGGER_OFFSET.Y + event.translationY * 6)
-  //         timer.value = 0
-  //         timer.value = withTiming(100, { duration: 2400 }, () => {
-  //           runOnJS(setIsRevealed)(true)
-  //           runOnJS(nextCard)()
-  //         })
   //       } else {
   //         x.value = withSpring(DRAGGER_OFFSET.X)
   //         y.value = withSpring(DRAGGER_OFFSET.Y)
@@ -196,21 +158,12 @@ export const FlashCardScreen = () => {
   //   }
   // })
 
-  // const backgroundStyle = useAnimatedStyle(() => {
-  //   return {
-  //     backgroundColor:
-  //   }
-  // })
-
-  // const bgc = interpolateColors(flip.value, {
-  //   inputRange: [0, 1],
-  //   outputColorRange: ['rgba(0, 255, 0, 1)', 'rgba(0, 255, 255, 1)'],
-  // })
-  // console.log(bgc.value)
-
   const flipStyle = useAnimatedStyle(() => {
+    const darken = (0.5 - Math.abs(flip.value - 0.5)) * 100
+    const rgba = `rgb(${250 - darken},${225 - darken},${223 - darken})`
     return {
       height: '100%',
+      backgroundColor: rgba,
       transform: [
         { translateY: -190 },
         { rotateX: `${flip.value * 180}deg` },
@@ -221,15 +174,14 @@ export const FlashCardScreen = () => {
   })
 
   const currentText = useAnimatedStyle(() => {
-    const display = flip.value >= 0.5 ? 'none' : 'flex'
-    return { display }
+    return {
+      display: flip.value >= 0.5 ? 'none' : 'flex',
+    }
   })
 
   const nextText = useAnimatedStyle(() => {
-    const display = flip.value < 0.5 ? 'none' : 'flex'
-    console.log('next', display)
     return {
-      display,
+      display: flip.value < 0.5 ? 'none' : 'flex',
       transform: [{ rotateX: `180deg` }],
     }
   })
@@ -239,27 +191,31 @@ export const FlashCardScreen = () => {
       <CardTapContainer onPress={() => {}}>
         <CardsContainer>
           <Half>
-            <Card>
+            <Card index={wordPair.index}>
               <CardCaption>
-                {getWordForInvertibleWordPair({
-                  wordPair: state.currentWordPair,
-                  wordIndex: 0,
-                })}{' '}
+                {getWordForInvertibleWordPair({ wordPair, wordIndex: 0 })}{' '}
               </CardCaption>
             </Card>
           </Half>
           <Half>
-            <PanGestureHandler onGestureEvent={onFlipGestureEvent}>
-              <Card style={[flipStyle]}>
-                <CardCaption style={[currentText, { backgroundColor: 'red' }]}>
+            <CardCoverContainer>
+              <Card index={nextWordPair.index}>
+                <CardCaption>
                   {getWordForInvertibleWordPair({
-                    wordPair: state.currentWordPair,
+                    wordPair: nextWordPair,
                     wordIndex: 1,
                   })}{' '}
                 </CardCaption>
+              </Card>
+            </CardCoverContainer>
+            <PanGestureHandler onGestureEvent={onFlipGestureEvent}>
+              <Card style={[flipStyle]}>
+                <CardCaption style={currentText}>
+                  {getWordForInvertibleWordPair({ wordPair, wordIndex: 1 })}{' '}
+                </CardCaption>
                 <CardCaption style={nextText}>
                   {getWordForInvertibleWordPair({
-                    wordPair: state.nextWordPair,
+                    wordPair: nextWordPair,
                     wordIndex: 0,
                   })}{' '}
                 </CardCaption>
