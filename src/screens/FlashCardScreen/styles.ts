@@ -11,6 +11,15 @@ export const ScoreContainer = styled.View`
   background-color: #fae1df;
 `
 
+export const ScoreBackground = styled(Animated.View)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #aca;
+  border-radius: 20px;
+`
+
 export const Score = styled.View`
   flex: 1;
   background-color: white;
@@ -22,6 +31,11 @@ export const Score = styled.View`
 export const ScoreCaption = styled(Text)`
   font-weight: bold;
   font-size: 25px;
+`
+
+export const ScoreTime = styled(Text)`
+  font-size: 12px;
+  color: red;
 `
 
 export const QuestionContainer = styled.View`
@@ -40,7 +54,7 @@ export const QuestionCaption = styled(Animated.Text)`
 export const AnswersContainer = styled.View`
   flex: 1;
   background-color: white;
-  margin: 10px;
+  padding: 10px;
 `
 
 interface iAnswerContainer {
@@ -51,8 +65,12 @@ interface iAnswerContainer {
 
 const getAnswerColor = ({ revealed, correct, wrong }: iAnswerContainer) => {
   let color = '#fae1df'
-  if (revealed && correct) color = '#efd'
-  if (revealed && wrong) color = '#faa'
+  if (revealed && correct) {
+    color = '#8c8'
+  }
+  if (revealed && wrong) {
+    color = '#faa'
+  }
   return color
 }
 
@@ -70,14 +88,21 @@ export const AnswerCaption = styled(Animated.Text)`
   font-weight: bold;
 `
 
-// '#afe2f3'
-export const Card = styled(Animated.View)<{ index?: number }>`
-  flex: 1;
+export const StartGameContainer = styled.View`
   background-color: #fae1df;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 20px;
+  flex: 1;
   justify-content: center;
   align-items: center;
-  height: 100%;
+`
+
+export const StartGameButton = styled.TouchableHighlight`
+  background-color: white;
+  padding: 40px 60px;
+  border-radius: 20px;
+`
+
+export const StartGameButtonCaption = styled(Text)`
+  font-size: 36px;
+  color: #007;
+  font-family: 'Caveat';
 `
