@@ -1,3 +1,4 @@
+import { iWordPair } from '@types'
 import { sample } from 'lodash'
 
 const WORD_PAIRS = [
@@ -74,9 +75,12 @@ const WORD_PAIRS = [
   ['rapido', 'schnell'],
   ['saltar', 'springen'],
   ['pelo rizado', 'lockiges Haar'],
+  ['morder', 'beißen'],
+  ['los pies del animal', 'die Pfoten'],
+  ['responsibilarse de algo', 'sich um etwas kümmern'],
 ]
 
-export const getRandomWordPair = () =>
+export const getRandomWordPair = (): iWordPair =>
   sample(
     WORD_PAIRS.map(wordPair => {
       return {
@@ -84,4 +88,4 @@ export const getRandomWordPair = () =>
         german: wordPair[1],
       }
     }),
-  )
+  ) as iWordPair
