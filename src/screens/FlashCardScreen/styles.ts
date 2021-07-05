@@ -1,4 +1,5 @@
 import { ScribbleText } from '@styles'
+import Animated from 'react-native-reanimated'
 import styled from 'styled-components/native'
 
 export const CardTapContainer = styled.TouchableWithoutFeedback`
@@ -8,15 +9,21 @@ export const CardTapContainer = styled.TouchableWithoutFeedback`
 export const CardsContainer = styled.View`
   flex: 1;
 `
-
-export const Card = styled.View<{ inverse: boolean }>`
+// '#fae1df'
+export const Card = styled(Animated.View)`
   flex: 1;
-  background-color: ${({ inverse }) => (inverse ? '#AFE2F3' : '#fae1df')};
+  background-color: #afe2f3;
   margin: 10px;
   padding: 10px;
   border-radius: 20px;
   justify-content: center;
   align-items: center;
+  height: 100%;
+`
+
+export const Half = styled.View`
+  width: 100%;
+  height: 50%;
 `
 
 export const LowerCardContainer = styled.View`
@@ -31,6 +38,7 @@ export const CardCoverContainer = styled.View`
   width: 100%;
   bottom: 0px;
   left: 0px;
+  background-color: orange;
 `
 
 export const CardCover = styled.View`
@@ -44,7 +52,8 @@ export const CardCover = styled.View`
   align-items: center;
 `
 
-export const CardCaption = styled(ScribbleText)`
+export const CardCaption = styled(Animated.Text)`
   font-size: 46px;
   color: #007;
+  font-family: 'Caveat';
 `
