@@ -11,6 +11,8 @@ module.exports = {
           '@styles': './src/styles',
           '@types': './src/types',
           '@lib': './src/lib',
+          '@graphqlQueries': './src/graphql/queries',
+          '@graphqlMutations': './src/graphql/mutations',
         },
       },
     ],

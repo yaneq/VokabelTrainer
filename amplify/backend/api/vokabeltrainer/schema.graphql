@@ -1,0 +1,5 @@
+type WordPair @model {
+  id: ID!
+  german: String!
+  spanish: String!
+}

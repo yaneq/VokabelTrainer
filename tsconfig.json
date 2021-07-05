@@ -62,7 +62,9 @@
       "@styles": ["./src/styles/index"],
       "@screens": ["./src/screens"],
       "@types": ["./src/types"],
-      "@lib": ["./src/lib"]
+      "@lib": ["./src/lib"],
+      "@graphqlQueries": ["./src/graphql/queries"],
+      "@graphqlMutations": ["./src/graphql/mutations"]
     }
   },
   "exclude": [
