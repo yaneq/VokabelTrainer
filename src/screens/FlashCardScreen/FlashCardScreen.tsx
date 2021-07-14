@@ -12,6 +12,8 @@ import {
   ScoreBackground,
   ScoreCaption,
   ScoreContainer,
+  ScoreSideCaption,
+  ScoreSideCaptionContainer,
   StartGameButton,
   StartGameButtonCaption,
   StartGameContainer,
@@ -22,8 +24,9 @@ import {
   useSharedValue,
   withSpring,
 } from 'react-native-reanimated'
+import { View } from 'react-native'
 
-const LEVEL_LENGTH = 3
+const LEVEL_LENGTH = 6
 
 export const FlashCardScreen = () => {
   const [question, setQuestion] = useState<iQuestion>(() => getRandomQuestion())
@@ -138,8 +141,12 @@ export const FlashCardScreen = () => {
       <ScoreContainer>
         <Score>
           <ScoreBackground style={scoreBackgroundStyle} />
-          <ScoreCaption>{secondsPassed}</ScoreCaption>
-
+          <View style={{ flexDirection: 'row' }}>
+            <ScoreCaption>{secondsPassed}</ScoreCaption>
+            <ScoreSideCaptionContainer>
+              <ScoreSideCaption>Sekunden</ScoreSideCaption>
+            </ScoreSideCaptionContainer>
+          </View>
           {/* {lastLevelTime && (
             <ScoreTime>Last level: {lastLevelTime} seconds</ScoreTime>
           )} */}

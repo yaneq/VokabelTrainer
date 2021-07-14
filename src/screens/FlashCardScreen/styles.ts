@@ -7,7 +7,7 @@ export const Container = styled.View`
 `
 
 export const ScoreContainer = styled.View`
-  height: 80px;
+  height: 100px;
   background-color: #fae1df;
 `
 
@@ -30,12 +30,18 @@ export const Score = styled.View`
 `
 export const ScoreCaption = styled(Text)`
   font-weight: bold;
-  font-size: 25px;
+  font-size: 32px;
 `
 
-export const ScoreTime = styled(Text)`
-  font-size: 12px;
-  color: red;
+export const ScoreSideCaptionContainer = styled.View`
+  justify-content: flex-end;
+`
+
+export const ScoreSideCaption = styled(Text)`
+  font-weight: bold;
+  font-size: 32px;
+  color: rgba(100, 100, 100, 0.7);
+  padding: 0px 8px 2px;
 `
 
 export const QuestionContainer = styled.View`
