@@ -1,4 +1,4 @@
-import { getRandomQuestion } from '@lib'
+import { fetchRecordTimes, getRandomQuestion, saveRecordTime } from '@lib'
 import { RootContainer } from '@styles'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { iQuestion } from '@types'
@@ -36,7 +36,7 @@ import {
 } from 'react-native'
 import { RecordTime } from '../../API'
 
-const LEVEL_LENGTH = 6
+const LEVEL_LENGTH = 2
 
 export const FlashCardScreen = () => {
   const [question, setQuestion] = useState<iQuestion>(() => getRandomQuestion())
@@ -177,6 +177,19 @@ export const FlashCardScreen = () => {
       }
     }
   }, [isGameRunning, timerStartedAt])
+
+  useEffect(() => {
+    resetGame()
+    updateRecordTimes()
+    // reset game status when app goes to background
+    const handler = (status: AppStateStatus) => {
+      if (status === 'background') {
+        resetGame()
+      }
+    }
+    AppState.addEventListener('change', handler)
+    return () => AppState.removeEventListener('change', handler)
+  }, [resetGame])
 
   return (
     <RootContainer style={{ backgroundColor: '#fae1df' }}>
