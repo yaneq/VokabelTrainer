@@ -19,7 +19,7 @@ const FIXED_WORD_PAIRS = [
   ['la ralladura', 'der Kratzer'],
   ['seguramente', 'bestimmt'],
   ['la tierra', 'die Erde'],
-  ['el sillin', 'der Sattel'],
+  ['el sillin', 'der Sattel / der Sitz'],
   ['el deseo', 'der Wunsch'],
   ['la tienda', 'der Laden / das Geschäft'],
   ['ir de compras', 'einkaufen gehen'],
