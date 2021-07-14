@@ -35,3 +35,39 @@ export const onDeleteWordPair = /* GraphQL */ `
     }
   }
 `;
+export const onCreateRecordTime = /* GraphQL */ `
+  subscription OnCreateRecordTime {
+    onCreateRecordTime {
+      id
+      name
+      time
+      type
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateRecordTime = /* GraphQL */ `
+  subscription OnUpdateRecordTime {
+    onUpdateRecordTime {
+      id
+      name
+      time
+      type
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteRecordTime = /* GraphQL */ `
+  subscription OnDeleteRecordTime {
+    onDeleteRecordTime {
+      id
+      name
+      time
+      type
+      createdAt
+      updatedAt
+    }
+  }
+`;

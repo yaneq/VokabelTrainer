@@ -44,3 +44,48 @@ export const deleteWordPair = /* GraphQL */ `
     }
   }
 `;
+export const createRecordTime = /* GraphQL */ `
+  mutation CreateRecordTime(
+    $input: CreateRecordTimeInput!
+    $condition: ModelRecordTimeConditionInput
+  ) {
+    createRecordTime(input: $input, condition: $condition) {
+      id
+      name
+      time
+      type
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateRecordTime = /* GraphQL */ `
+  mutation UpdateRecordTime(
+    $input: UpdateRecordTimeInput!
+    $condition: ModelRecordTimeConditionInput
+  ) {
+    updateRecordTime(input: $input, condition: $condition) {
+      id
+      name
+      time
+      type
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteRecordTime = /* GraphQL */ `
+  mutation DeleteRecordTime(
+    $input: DeleteRecordTimeInput!
+    $condition: ModelRecordTimeConditionInput
+  ) {
+    deleteRecordTime(input: $input, condition: $condition) {
+      id
+      name
+      time
+      type
+      createdAt
+      updatedAt
+    }
+  }
+`;

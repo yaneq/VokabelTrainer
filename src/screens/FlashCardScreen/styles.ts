@@ -112,3 +112,23 @@ export const StartGameButtonCaption = styled(Text)`
   color: #007;
   font-family: 'Caveat';
 `
+
+export const RecordTimesContainer = styled.View`
+  width: 100%;
+  margin: 10%;
+`
+
+export const RecordTimeListEntry = styled.View`
+  margin: 2px 10%;
+  padding: 4%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 10px;
+`
+
+export const RecordTimeListCaption = styled(Text)`
+  font-weight: bold;
+  font-size: 20px;
+`

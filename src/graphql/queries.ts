@@ -12,7 +12,7 @@ export const getWordPair = /* GraphQL */ `
       updatedAt
     }
   }
-`;
+`
 export const listWordPairs = /* GraphQL */ `
   query ListWordPairs(
     $filter: ModelWordPairFilterInput
@@ -30,4 +30,62 @@ export const listWordPairs = /* GraphQL */ `
       nextToken
     }
   }
-`;
+`
+export const getRecordTime = /* GraphQL */ `
+  query GetRecordTime($id: ID!) {
+    getRecordTime(id: $id) {
+      id
+      name
+      time
+      type
+      createdAt
+      updatedAt
+    }
+  }
+`
+export const listRecordTimes = /* GraphQL */ `
+  query ListRecordTimes(
+    $filter: ModelRecordTimeFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listRecordTimes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        time
+        type
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`
+export const recordTimeByFastest = /* GraphQL */ `
+  query RecordTimeByFastest(
+    $time: ModelFloatKeyConditionInput
+    $filter: ModelRecordTimeFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    recordTimeByFastest(
+      type: "RecordTime"
+      time: $time
+      sortDirection: ASC
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        name
+        time
+        type
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`

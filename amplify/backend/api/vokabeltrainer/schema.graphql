@@ -3,3 +3,11 @@ type WordPair @model {
   german: String!
   spanish: String!
 }
+
+type RecordTime @model
+  @key(name: "recordTimeByFastest", fields: ["type", "time"], queryField: "recordTimeByFastest") {
+  id: ID!
+  name: String!
+  time: Float!
+  type: String!
+}

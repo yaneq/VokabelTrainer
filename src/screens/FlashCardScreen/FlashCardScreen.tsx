@@ -8,6 +8,9 @@ import {
   AnswersContainer,
   QuestionCaption,
   QuestionContainer,
+  RecordTimeListCaption,
+  RecordTimeListEntry,
+  RecordTimesContainer,
   Score,
   ScoreBackground,
   ScoreCaption,
@@ -24,7 +27,14 @@ import {
   useSharedValue,
   withSpring,
 } from 'react-native-reanimated'
-import { View } from 'react-native'
+import {
+  ActivityIndicator,
+  Alert,
+  AppState,
+  AppStateStatus,
+  View,
+} from 'react-native'
+import { RecordTime } from '../../API'
 
 const LEVEL_LENGTH = 6
 
@@ -35,8 +45,9 @@ export const FlashCardScreen = () => {
   const [timerStartedAt, setTimerStartedAt] = useState<any>(null)
   const [completedCount, setCompletedCount] = useState(0)
   const [secondsPassed, setSecondsPassed] = useState(0)
+  const [recordTimes, setRecordTimes] = useState<RecordTime[] | null>(null)
   const sharedCompletedCount = useSharedValue(0)
-  const timer = useRef()
+  const timer = useRef<any>()
 
   useEffect(() => {
     sharedCompletedCount.value = completedCount
@@ -51,6 +62,11 @@ export const FlashCardScreen = () => {
       subscription.remove()
     }
   }, [])
+
+  const updateRecordTimes = async () => {
+    const _recordTimes = await fetchRecordTimes()
+    setRecordTimes(_recordTimes || null)
+  }
 
   const nextQuestion = () => {
     if (
@@ -71,12 +87,12 @@ export const FlashCardScreen = () => {
       setCompletedCount(completedCount + 1)
       if (completedCount + 1 >= LEVEL_LENGTH) {
         SoundPlayer.playSoundFile('levelUp', 'wav')
-        finishGame()
+        finishGame({ success: true })
       } else {
         SoundPlayer.playSoundFile('correct', 'wav')
       }
     } else {
-      finishGame()
+      finishGame({ success: false })
       SoundPlayer.playSoundFile('fail', 'wav')
     }
   }
@@ -105,19 +121,45 @@ export const FlashCardScreen = () => {
     setSecondsPassed(0)
   }, [])
 
-  const finishGame = useCallback(() => {
-    setIsGameRunning(false)
-    const _completionTime =
-      Math.floor((new Date().getTime() - timerStartedAt.getTime()) / 100) / 10
-    setSecondsPassed(_completionTime)
-  }, [timerStartedAt])
-
   const resetGame = useCallback(() => {
     setIsGameRunning(false)
     setTimerStartedAt(null)
     setCompletedCount(0)
     setSelectedSolutionIndex(-1)
   }, [])
+
+  const finishGame = useCallback(
+    ({ success }: { success: boolean }) => {
+      setIsGameRunning(false)
+      const _completionTime =
+        Math.floor((new Date().getTime() - timerStartedAt.getTime()) / 10) / 100
+      setSecondsPassed(_completionTime)
+      if (success) {
+        let longestTimeInRecords: Number | null = null
+        if (recordTimes && recordTimes.length > 0) {
+          longestTimeInRecords = recordTimes[recordTimes.length - 1].time
+        }
+        if (
+          !longestTimeInRecords ||
+          (longestTimeInRecords && _completionTime < longestTimeInRecords)
+        ) {
+          Alert.prompt(
+            'Glückwunsch!',
+            'Das ist ein neuer Rekord. Wie ist dein Name?',
+            async name => {
+              resetGame()
+              setRecordTimes(null)
+              await saveRecordTime({ name, time: _completionTime })
+              updateRecordTimes()
+            },
+          )
+        }
+      } else {
+        updateRecordTimes()
+      }
+    },
+    [timerStartedAt, resetGame, recordTimes],
+  )
 
   useEffect(() => {
     if (isGameRunning) {
@@ -178,6 +220,20 @@ export const FlashCardScreen = () => {
       )}
       {!timerStartedAt && (
         <StartGameContainer>
+          <RecordTimesContainer>
+            {!recordTimes && <ActivityIndicator color="black" size={'large'} />}
+            {recordTimes &&
+              recordTimes.map((recordTime: RecordTime, index: number) => (
+                <RecordTimeListEntry key={index}>
+                  <RecordTimeListCaption>
+                    {index + 1}. {recordTime.name}
+                  </RecordTimeListCaption>
+                  <RecordTimeListCaption>
+                    {recordTime.time}
+                  </RecordTimeListCaption>
+                </RecordTimeListEntry>
+              ))}
+          </RecordTimesContainer>
           <StartGameButton
             onPress={() => {
               startGame()
