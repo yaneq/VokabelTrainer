@@ -1,0 +1,21 @@
+{
+    "appName": "vokabeltrainer",
+    "roleName": "pinpointLambdaRoled3a637ba",
+    "cloudformationPolicyName": "cloudformationPolicyd3a637ba",
+    "cloudWatchPolicyName": "cloudWatchPolicyd3a637ba",
+    "pinpointPolicyName": "pinpointPolicyd3a637ba",
+    "authPolicyName": "pinpoint_amplify_d3a637ba",
+    "unauthPolicyName": "pinpoint_amplify_d3a637ba",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

@@ -16,5 +16,18 @@
         }
       }
     }
+  },
+  "auth": {
+    "cognitoc119d013": {
+      "service": "Cognito",
+      "serviceType": "managed",
+      "providerPlugin": "awscloudformation"
+    }
+  },
+  "analytics": {
+    "vokabeltrainer": {
+      "service": "Pinpoint",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }

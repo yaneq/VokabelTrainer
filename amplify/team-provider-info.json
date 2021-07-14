@@ -10,6 +10,11 @@
       "StackName": "amplify-vokabeltrainer-dev-111435",
       "StackId": "arn:aws:cloudformation:ca-central-1:597717658220:stack/amplify-vokabeltrainer-dev-111435/2bae53e0-dcd2-11eb-8de8-025b9d404cea",
       "AmplifyAppId": "dhk35kt14rh24"
+    },
+    "categories": {
+      "auth": {
+        "cognitoc119d013": {}
+      }
     }
   }
 }
