@@ -36,7 +36,7 @@ import {
 } from 'react-native'
 import { RecordTime } from '../../API'
 
-const LEVEL_LENGTH = 2
+const LEVEL_LENGTH = 6
 
 export const FlashCardScreen = () => {
   const [question, setQuestion] = useState<iQuestion>(() => getRandomQuestion())

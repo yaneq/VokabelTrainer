@@ -7,7 +7,7 @@ import { RecordTime, RecordTimeByFastestQuery } from '../API'
 export const fetchRecordTimes = async (): Promise<RecordTime[]> => {
   const results = (await API.graphql(
     graphqlOperation(recordTimeByFastest, {
-      query: { q: 4 },
+      type: 'RecordTime',
       sortDirection: 'ASC',
       limit: 5,
     }),

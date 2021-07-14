@@ -12,7 +12,7 @@ export const getWordPair = /* GraphQL */ `
       updatedAt
     }
   }
-`
+`;
 export const listWordPairs = /* GraphQL */ `
   query ListWordPairs(
     $filter: ModelWordPairFilterInput
@@ -30,7 +30,7 @@ export const listWordPairs = /* GraphQL */ `
       nextToken
     }
   }
-`
+`;
 export const getRecordTime = /* GraphQL */ `
   query GetRecordTime($id: ID!) {
     getRecordTime(id: $id) {
@@ -42,7 +42,7 @@ export const getRecordTime = /* GraphQL */ `
       updatedAt
     }
   }
-`
+`;
 export const listRecordTimes = /* GraphQL */ `
   query ListRecordTimes(
     $filter: ModelRecordTimeFilterInput
@@ -61,18 +61,20 @@ export const listRecordTimes = /* GraphQL */ `
       nextToken
     }
   }
-`
+`;
 export const recordTimeByFastest = /* GraphQL */ `
   query RecordTimeByFastest(
+    $type: String
     $time: ModelFloatKeyConditionInput
+    $sortDirection: ModelSortDirection
     $filter: ModelRecordTimeFilterInput
     $limit: Int
     $nextToken: String
   ) {
     recordTimeByFastest(
-      type: "RecordTime"
+      type: $type
       time: $time
-      sortDirection: ASC
+      sortDirection: $sortDirection
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -88,4 +90,4 @@ export const recordTimeByFastest = /* GraphQL */ `
       nextToken
     }
   }
-`
+`;
